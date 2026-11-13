@@ -898,7 +898,7 @@ class Styles(StylesBase):
         """Get a copy of this Styles object."""
         return Styles(
             node=self.node,
-            _rules=self.get_rules(),
+            _rules=self._rules,
             important=self.important,
         )
 

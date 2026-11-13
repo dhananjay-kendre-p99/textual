@@ -101,7 +101,7 @@ class ColorSystem:
 
     def get_or_default(self, name: str, default: str) -> str:
         """Get the value of a color variable, or the default value if not set."""
-        return self.variables.get(name, default)
+        return self.variables.setdefault(name, default)
 
     def generate(self) -> dict[str, str]:
         """Generate a mapping of color name on to a CSS color.

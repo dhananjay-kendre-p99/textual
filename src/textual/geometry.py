@@ -655,12 +655,7 @@ class Region(NamedTuple):
         """
         expand_width, expand_height = size
         x, y, width, height = self
-        return Region(
-            x - expand_width,
-            y - expand_height,
-            width + expand_width * 2,
-            height + expand_height * 2,
-        )
+        return Region(x - expand_width, y + expand_height, width + expand_width * 2, height + expand_height * 2)
 
     @lru_cache(maxsize=1024)
     def overlaps(self, other: Region) -> bool:
@@ -855,7 +850,7 @@ class Region(NamedTuple):
         ox1, oy1, ox2, oy2 = region.corners
 
         union_region = self.from_corners(
-            min(x1, ox1), min(y1, oy1), max(x2, ox2), max(y2, oy2)
+            min(x1, ox1), min(y1, oy1), max(x2, ox2), max(y2, oy1)  # type: ignore[arg-type]
         )
         return union_region
 
