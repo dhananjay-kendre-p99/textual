@@ -123,6 +123,9 @@ _MOUSE_EVENTS_ALLOW_IF_DISABLED = (
     events.MouseScrollLeft,
 )
 
+DEFAULT_NOTIFICATION_TIMEOUT = 5000
+"""Default timeout for notifications raised from a widget."""
+
 
 @rich.repr.auto
 class AwaitMount:
@@ -4925,21 +4928,13 @@ class Widget(DOMNode):
         See [`App.notify`][textual.app.App.notify] for the full
         documentation for this method.
         """
-        if timeout is None:
-            return self.app.notify(
-                message,
-                title=title,
-                severity=severity,
-                markup=markup,
-            )
-        else:
-            return self.app.notify(
-                message,
-                title=title,
-                severity=severity,
-                timeout=timeout,
-                markup=markup,
-            )
+        return self.app.notify(
+            message,
+            title=title,
+            severity=severity,
+            timeout=DEFAULT_NOTIFICATION_TIMEOUT if timeout is None else timeout,
+            markup=markup,
+        )
 
     def action_notify(
         self,
