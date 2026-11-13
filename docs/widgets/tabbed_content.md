@@ -4,6 +4,8 @@
 
 Switch between mutually exclusive content panes via a row of tabs.
 
+Capabilities:
+
 - [x] Focusable
 - [x] Container
 

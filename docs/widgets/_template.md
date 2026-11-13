@@ -4,6 +4,8 @@
 
 Widget description.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

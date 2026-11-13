@@ -4,6 +4,8 @@
 
 A Widget to display Markdown content with an optional Table of Contents.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

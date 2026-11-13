@@ -8,6 +8,8 @@ Call [RichLog.write][textual.widgets.RichLog.write] with a string or [Rich Rende
 
     See also [Log](../widgets/log.md) which is an alternative to `RichLog` but specialized for simple text.
 
+Capabilities:
+
 - [X] Focusable
 - [ ] Container
 

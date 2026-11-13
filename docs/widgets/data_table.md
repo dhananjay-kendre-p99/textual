@@ -4,6 +4,8 @@ A widget to display text in a table.  This includes the ability to update data, 
 
 Applications may have custom rules for formatting, numbers, repopulating tables after searching or filtering, and responding to selections.  The widget emits events to interface with custom logic.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

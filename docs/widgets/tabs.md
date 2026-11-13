@@ -4,6 +4,8 @@
 
 Displays a number of tab headers which may be activated with a click or navigated with cursor keys.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

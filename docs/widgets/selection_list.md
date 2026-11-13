@@ -4,6 +4,8 @@
 
 A widget for showing a vertical list of selectable options.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

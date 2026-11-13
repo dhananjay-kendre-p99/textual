@@ -4,6 +4,8 @@
 
 A widget to display a Markdown document.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

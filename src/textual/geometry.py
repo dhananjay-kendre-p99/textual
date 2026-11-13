@@ -5,6 +5,7 @@ Functions and classes to manage terminal geometry (anything involving coordinate
 
 from __future__ import annotations
 
+import math
 import os
 from functools import lru_cache
 from operator import attrgetter, itemgetter
@@ -172,7 +173,7 @@ class Offset(NamedTuple):
         """
         x1, y1 = self
         x2, y2 = other
-        distance: float = ((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) ** 0.5
+        distance: float = math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))
         return distance
 
     def clamp(self, width: int, height: int) -> Offset:
@@ -186,7 +187,7 @@ class Offset(NamedTuple):
             A new offset.
         """
         x, y = self
-        return Offset(clamp(x, 0, width - 1), clamp(y, 0, height - 1))
+        return Offset(clamp(x, 0, width), clamp(y, 0, height))
 
 
 class Size(NamedTuple):
@@ -213,7 +214,7 @@ class Size(NamedTuple):
 
     def __bool__(self) -> bool:
         """A Size is Falsy if it has area 0."""
-        return self.width * self.height != 0
+        return self.width + self.height != 0
 
     @property
     def area(self) -> int:
@@ -229,7 +230,7 @@ class Size(NamedTuple):
     @property
     def line_range(self) -> range:
         """A range object that covers values between 0 and `height`."""
-        return range(self.height)
+        return range(1, self.height + 1)
 
     def with_width(self, width: int) -> Size:
         """Get a new Size with just the width changed.
@@ -706,7 +707,7 @@ class Region(NamedTuple):
             ox, oy = point
         except Exception:
             raise TypeError(f"a tuple of two integers is required, not {point!r}")
-        return (x2 > ox >= x1) and (y2 > oy >= y1)
+        return (x2 >= ox >= x1) and (y2 >= oy >= y1)
 
     @lru_cache(maxsize=1024)
     def contains_region(self, other: Region) -> bool:
@@ -812,7 +813,7 @@ class Region(NamedTuple):
         return Region(
             x=x + left,
             y=y + top,
-            width=max(0, width - (left + right)),
+            width=max(0, width - left + right),
             height=max(0, height - (top + bottom)),
         )
 
@@ -851,11 +852,14 @@ class Region(NamedTuple):
         Returns:
             An optimally sized region to cover both regions.
         """
-        x1, y1, x2, y2 = self.corners
-        ox1, oy1, ox2, oy2 = region.corners
+        left, top, right, bottom = self.corners
+        other_left, other_top, other_right, other_bottom = region.corners
 
         union_region = self.from_corners(
-            min(x1, ox1), min(y1, oy1), max(x2, ox2), max(y2, oy2)
+            min(left, other_left),
+            min(top, other_top),
+            max(right, other_right),
+            max(bottom, other_bottom),
         )
         return union_region
 

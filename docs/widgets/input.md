@@ -2,6 +2,8 @@
 
 A single-line text input widget.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

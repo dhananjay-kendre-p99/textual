@@ -6,6 +6,8 @@ A simple header widget which docks itself to the top of the parent container.
 
     The application title which is shown in the header is taken from the [`title`][textual.app.App.title] and [`sub_title`][textual.app.App.sub_title] of the application.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

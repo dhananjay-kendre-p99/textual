@@ -4,6 +4,8 @@
 
 A widget which displays static text, but which can also contain more complex Rich renderables.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

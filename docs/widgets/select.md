@@ -5,6 +5,8 @@
 A Select widget is a compact control to allow the user to select between a number of possible options.
 
 
+Capabilities:
+
 - [X] Focusable
 - [ ] Container
 

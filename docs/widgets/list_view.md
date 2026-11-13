@@ -5,6 +5,8 @@
 Displays a vertical list of `ListItem`s which can be highlighted and selected.
 Supports keyboard navigation.
 
+Capabilities:
+
 - [x] Focusable
 - [x] Container
 

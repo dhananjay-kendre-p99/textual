@@ -8,6 +8,8 @@ A widget for editing text which may span multiple lines.
 Supports text selection, soft wrapping, optional syntax highlighting with tree-sitter
 and a variety of keybindings.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

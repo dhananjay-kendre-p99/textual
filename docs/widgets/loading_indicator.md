@@ -4,6 +4,8 @@
 
 Displays pulsating dots to indicate when data is being loaded.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

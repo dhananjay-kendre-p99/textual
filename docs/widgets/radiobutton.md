@@ -4,6 +4,8 @@
 
 A simple radio button which stores a boolean value.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

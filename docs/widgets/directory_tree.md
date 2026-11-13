@@ -2,6 +2,8 @@
 
 A tree control to navigate the contents of your filesystem.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

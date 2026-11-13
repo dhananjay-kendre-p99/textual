@@ -4,6 +4,8 @@
 
 A masked input derived from `Input`, allowing to restrict user input and give visual aid via a simple template mask, which also acts as an implicit *[validator][textual.validation.Validator]*.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

@@ -318,7 +318,7 @@ class Key(InputEvent):
 
 def _key_to_identifier(key: str) -> str:
     """Convert the key string to a name suitable for use as a Python identifier."""
-    key_no_modifiers = key.split("+")[-1]
+    key_no_modifiers = key.lstrip("ctrl+").lstrip("shift+")
     if len(key_no_modifiers) == 1 and key_no_modifiers.isupper():
         if "+" in key:
             key = f"{key.rpartition('+')[0]}+upper_{key_no_modifiers}"
