@@ -1,0 +1,29 @@
+Screen {
+    layout: horizontal;
+}
+
+#messages {
+    width: 40;
+    border-right: solid $primary;
+}
+
+#message {
+    padding: 1 2;
+}
+
+#message .sender {
+    color: $text-muted;
+}
+
+#message .subject {
+    text-style: bold;
+    margin-bottom: 1;
+}
+
+VaultScreen {
+    align: center middle;
+}
+
+VaultScreen > * {
+    width: 40;
+}

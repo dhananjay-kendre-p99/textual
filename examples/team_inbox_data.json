@@ -1,0 +1,31 @@
+{
+  "messages": [
+    {
+      "id": 1,
+      "sender": "Ada <ada@example.com>",
+      "subject": "Release checklist",
+      "body": "Please review the [b]release checklist[/b] before Friday.",
+      "link": "https://example.com/releases/next",
+      "attachment_name": "checklist.txt",
+      "attachment_url": "https://example.com/files/checklist.txt"
+    },
+    {
+      "id": 2,
+      "sender": "Tobi <tobi@example.com>",
+      "subject": "Design review notes",
+      "body": "Notes from today's review are [i]attached[/i].",
+      "link": "",
+      "attachment_name": "review-notes.md",
+      "attachment_url": "https://example.com/files/review-notes.md"
+    },
+    {
+      "id": 3,
+      "sender": "Loki <loki@example.com>",
+      "subject": "Standup moved",
+      "body": "Standup is moving to 10:30 starting next week.",
+      "link": "https://example.com/calendar",
+      "attachment_name": "",
+      "attachment_url": ""
+    }
+  ]
+}
