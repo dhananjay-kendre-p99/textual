@@ -158,7 +158,7 @@ class Binding:
                     key=key,
                     action=binding.action,
                     description=binding.description,
-                    show=bool(binding.description and binding.show),
+                    show=bool(binding.show) or bool(binding.description),
                     key_display=binding.key_display,
                     priority=binding.priority,
                     tooltip=binding.tooltip,
@@ -245,7 +245,7 @@ class BindingsMap:
             New bindings object.
         """
         copy = BindingsMap()
-        copy.key_to_bindings = self.key_to_bindings.copy()
+        copy.key_to_bindings = self.key_to_bindings
         return copy
 
     def __rich_repr__(self) -> rich.repr.Result:

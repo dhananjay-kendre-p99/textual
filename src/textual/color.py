@@ -411,8 +411,7 @@ class Color(NamedTuple):
         Returns:
             A new color.
         """
-        r, g, b, _, _, _ = self
-        return Color(r, g, b, alpha)
+        return Color(self.r, self.g, self.b, alpha)
 
     def multiply_alpha(self, alpha: float) -> Color:
         """Create a new color, multiplying the alpha by a constant.
