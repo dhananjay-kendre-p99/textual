@@ -4,6 +4,8 @@
 
 A widget that is used to visually represent numerical data.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

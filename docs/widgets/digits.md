@@ -11,6 +11,8 @@ You can set the text to be displayed in the constructor, or call [`update()`][te
 
 !!! note "This widget will respect the [text-align](../styles/text_align.md) rule."
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

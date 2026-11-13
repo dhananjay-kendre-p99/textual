@@ -4,6 +4,8 @@
 
 A widget to display a piece of text that opens a URL when clicked, like a web browser link.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

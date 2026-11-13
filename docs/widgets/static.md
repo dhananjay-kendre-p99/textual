@@ -3,6 +3,8 @@
 A widget which displays static content.
 Can be used for Rich renderables and can also be the base for other types of widgets.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

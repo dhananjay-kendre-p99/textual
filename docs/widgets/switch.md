@@ -2,6 +2,8 @@
 
 A simple switch widget which stores a boolean value.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

@@ -2,6 +2,8 @@
 
 A rule widget to separate content, similar to a `<hr>` HTML tag.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

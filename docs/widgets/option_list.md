@@ -4,6 +4,8 @@
 
 A widget for showing a vertical list of Rich renderable options.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

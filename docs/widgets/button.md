@@ -4,6 +4,8 @@
 A simple button widget which can be pressed using a mouse click or by pressing ++return++
 when it has focus.
 
+Capabilities:
+
 - [x] Focusable
 - [ ] Container
 

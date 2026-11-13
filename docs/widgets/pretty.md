@@ -2,6 +2,8 @@
 
 Display a pretty-formatted object.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

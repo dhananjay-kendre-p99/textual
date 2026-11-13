@@ -10,6 +10,8 @@ Call [Log.write_line][textual.widgets.Log.write_line] to write a line at a time,
 
     See also [RichLog](../widgets/rich_log.md) which can write more than just text, and supports a number of advanced features.
 
+Capabilities:
+
 - [X] Focusable
 - [ ] Container
 

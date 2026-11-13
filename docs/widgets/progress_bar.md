@@ -3,6 +3,8 @@
 
 A widget that displays progress on a time-consuming task.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 

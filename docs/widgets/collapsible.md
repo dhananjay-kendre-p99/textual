@@ -4,6 +4,8 @@
 
 A container with a title that can be used to show (expand) or hide (collapse) content, either by clicking or focusing and pressing ++enter++.
 
+Capabilities:
+
 - [x] Focusable
 - [x] Container
 

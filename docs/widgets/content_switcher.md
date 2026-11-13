@@ -5,6 +5,8 @@
 A widget for containing and switching display between multiple child
 widgets.
 
+Capabilities:
+
 - [ ] Focusable
 - [X] Container
 

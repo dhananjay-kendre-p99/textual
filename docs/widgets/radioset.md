@@ -4,6 +4,8 @@
 
 A container widget that groups [`RadioButton`](./radiobutton.md)s together.
 
+Capabilities:
+
 - [ ] Focusable
 - [x] Container
 

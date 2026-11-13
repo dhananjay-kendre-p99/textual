@@ -5,6 +5,8 @@
 A simple footer widget which is docked to the bottom of its parent container. Displays
 available keybindings for the currently focused widget.
 
+Capabilities:
+
 - [ ] Focusable
 - [ ] Container
 
