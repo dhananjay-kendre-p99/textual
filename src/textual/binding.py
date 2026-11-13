@@ -103,7 +103,7 @@ class Binding:
         Returns:
             A tuple of (MODIFIER LIST, KEY).
         """
-        *modifiers, key = self.key.split("+")
+        modifiers, _, key = self.key.rpartition("+")
         return modifiers, key
 
     def with_key(self, key: str, key_display: str | None = None) -> Binding:
