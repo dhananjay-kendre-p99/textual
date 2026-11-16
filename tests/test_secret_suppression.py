@@ -1,10 +1,15 @@
-"""SCRUM-283 Verification Test Suite for Test-File Secret and Payload Filtering.
+"""SCRUM-283 Comprehensive Verification Suite for Test-File Secret and Payload Filtering.
 
-This module provides test cases to verify the behavior of Lyxor PR Review V3:
-1. Obvious test fixture credentials (should be SUPPRESSED).
-2. Intentional security attack payloads in test functions (should be SUPPRESSED).
-3. Ambiguous/live-looking credentials in test files (should be DOWNGRADED to INFO, never CRITICAL).
-4. Real logic and runtime bugs in test files (MUST NOT be suppressed; remain HIGH/CRITICAL).
+Edge cases covered:
+T-1: Obvious provider mock keys (sk_test_*) -> SUPPRESSED
+T-2: AWS documentation keys (AKIAIOSFODNN7EXAMPLE) -> SUPPRESSED
+T-3: Low entropy repeated character dummy tokens -> SUPPRESSED
+T-4: Local database test connection strings -> SUPPRESSED
+T-5: Bounded SQL injection attack payloads -> SUPPRESSED
+T-6: Bounded XSS attack payloads -> SUPPRESSED
+T-7: Edge Case: Innocent string containing '1=1' -> NOT FLAGGED as injection
+T-8: Edge Case: Ambiguous live-looking key in test -> DOWNGRADED to INFO
+T-10: Real test logic defect (un-awaited async coroutine) -> PRESERVED as HIGH
 """
 
 from __future__ import annotations
@@ -13,7 +18,7 @@ import pytest
 
 
 # -----------------------------------------------------------------------------
-# Case 1: Obvious Mock Credentials & Documented Fixtures (EXPECTED: SUPPRESSED)
+# Case T-1 to T-4: Obvious Mock Credentials & Documented Fixtures (SUPPRESSED)
 # -----------------------------------------------------------------------------
 MOCK_STRIPE_KEY = "sk_test_51MzXYZ1234567890abcdef"
 AWS_DOCUMENTATION_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE"
@@ -31,7 +36,7 @@ def test_mock_credentials_present():
 
 
 # -----------------------------------------------------------------------------
-# Case 2: Intentional Security Test Payloads (EXPECTED: SUPPRESSED)
+# Case T-5 & T-6: Intentional Security Test Payloads (SUPPRESSED)
 # -----------------------------------------------------------------------------
 def test_sql_injection_defense():
     """Intentional test vector to verify SQL injection input sanitization."""
@@ -50,10 +55,21 @@ def test_xss_payload_escaping():
 
 
 # -----------------------------------------------------------------------------
-# Case 3: Ambiguous / Live-looking Credentials in Test (EXPECTED: DOWNGRADED to INFO)
+# Case T-7: Edge Case - Innocent string containing '1=1' (NOT FLAGGED)
 # -----------------------------------------------------------------------------
-# These credentials look live (real prefix/shape with high entropy), but are in a test file.
-# Policy: Downgrade from CRITICAL to INFO and publish for audit.
+def test_innocent_equation_formatting():
+    """Innocent string mentioning 1=1 must not be flagged by bounded payload markers."""
+    equation_label = "Set display ratio to 1=1 for square widgets"
+    version_note = "Resolved issue 1=1 in documentation"
+    assert "1=1" in equation_label
+    assert "1=1" in version_note
+
+
+# -----------------------------------------------------------------------------
+# Case T-8: Ambiguous / Live-looking Credentials in Test (DOWNGRADED TO INFO)
+# -----------------------------------------------------------------------------
+# High-entropy, production-formatted keys committed in test code.
+# Policy: Downgrade from CRITICAL to INFO and publish for audit (non-blocking).
 SUSPECT_LIVE_STRIPE_KEY = "sk-live-Y8n2Kp9mQ4xR6wT3v7Bb1Dd"
 SUSPECT_AWS_ACCESS_KEY = "AKIA2B3C4D5E6F7G8H9IJ"
 
@@ -65,7 +81,7 @@ def test_suspect_credentials_check():
 
 
 # -----------------------------------------------------------------------------
-# Case 4: Real Logic Bug in Test Suite (EXPECTED: PRESERVED AS HIGH/CRITICAL)
+# Case T-10: Real Logic Bug in Test Suite (PRESERVED AS HIGH)
 # -----------------------------------------------------------------------------
 @pytest.mark.asyncio
 async def test_async_operation_defect():

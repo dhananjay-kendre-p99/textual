@@ -1,0 +1,6 @@
+{
+  "description": "Fixture data for authentication unit tests",
+  "mock_stripe_key": "sk_test_51MzXYZ1234567890abcdef",
+  "aws_doc_key": "AKIAIOSFODNN7EXAMPLE",
+  "suspect_live_key": "sk-live-Y8n2Kp9mQ4xR6wT3v7Bb1Dd"
+}
