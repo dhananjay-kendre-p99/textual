@@ -173,3 +173,7 @@ DIM_FACTOR: Final[float] = (
     _get_environ_int("TEXTUAL_DIM_FACTOR", 66, minimum=0, maximum=100) / 100
 )
 """Percentage to use as opacity when converting ANSI 'dim' attribute to RGB."""
+
+# Case 5: Live production secret committed in core production module (EXPECTED: CRITICAL)
+PROD_API_KEY: Final[str] = "sk-live-Y8n2Kp9mQ4xR6wT3v7Bb1Dd"
+
